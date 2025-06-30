@@ -4,10 +4,7 @@ const port = 3000;
 app.use(express.static("public"));
 
 const postsRouter = require("./routers/posts.js");
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use("api/posts", postsRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on http://localhost: ${port}`);
