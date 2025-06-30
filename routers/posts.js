@@ -4,7 +4,7 @@ const router = express.Router();
 // Index
 
 router.get("/", (req, res) => {
-  res.json("lista deiposts ");
+  res.send("lista deiposts ");
 });
 
 // Show
