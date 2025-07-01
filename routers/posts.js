@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+// require posts bonus
+const posts = require("./posts.js");
+// l'ha scritta da solo...
+//const posts = require("../../../../Downloads/express_routing_immagini_e_post/posts.js");
 // Index
 
 router.get("/", (req, res) => {
@@ -10,8 +14,11 @@ router.get("/", (req, res) => {
 // Show
 router.get("/:id", (req, res) => {
   console.log(req.params);
-  const id = req.params.id;
-  res.send(`post numero ${id}`);
+  //const id = req.params.id;
+  const id = parseInt(req.params.id);
+  const post = posts.find((posts) => posts.id === id);
+  //res.send(`post numero ${id}`);
+  res.json(posts);
 });
 
 //Store
